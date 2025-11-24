@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* fundo gradient moderno */
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.titulo {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffffcc; /* branco com leve transparência */
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.inputField {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+}
+
+.error {
+  color: #ff4d4f;
+  font-size: 0.875rem;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+.submitButton {
+  padding: 12px 20px;
+  background-color: #2575fc;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #1a5ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+}
