@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import estilos from '../styles/Login.module.css';
+import estiloslogin from '../styles/Login.module.css';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const schemaLogin = z.object({
-    nome: z.string()
+    username: z.string()
         .min(1, "Informe o nome")
         .max(20, "Máximo de 20 caracteres"),
-    senha: z.string()
+    password: z.string()
         .min(1, "Informe sua senha")
         .max(20, "Máximo de 20 caracteres")
 });
@@ -29,10 +29,7 @@ export function Login() {
         try {
             const response = await axios.post(
                 "http://127.0.0.1:8000/app/userlogin/",
-                {
-                    nome: data.nome,
-                    senha: data.senha
-                }
+                data  // <-- Envia exatamente username + password
             );
 
             const { access, refresh } = response.data;
@@ -44,33 +41,33 @@ export function Login() {
             navigate("/home");
 
         } catch (error) {
-            alert("Nome ou senha inválidos!");
             console.error(error);
+            alert("Nome ou senha inválidos!");
         }
     }
 
-
     return (
-        <div className={estilos.container}>
-            <h2 className={estilos.titulo}>FAÇA SEU LOGIN</h2>
+        <div className={estiloslogin.container}>
+            <h2 className={estiloslogin.titulo}>FAÇA SEU LOGIN</h2>
 
-            <form onSubmit={handleSubmit(obterDadosFormulario)} className={estilos.loginForm}>
+            <form onSubmit={handleSubmit(obterDadosFormulario)} className={estiloslogin.loginForm}>
 
                 <input
-                    {...register("nome")}
+                    {...register("username")}
                     placeholder="Digite seu nome"
-                    className={estilos.inputField}
+                    className={estiloslogin.inputField}
                 />
-                {errors.nome && <p className="error">{errors.nome.message}</p>}
+                {errors.username && <p className={estiloslogin.error}>{errors.username.message}</p>}
 
                 <input
-                    {...register("senha")}
+                    {...register("password")}
                     type="password"
                     placeholder="Digite sua senha"
-                    className={estilos.inputField}
+                    className={estiloslogin.inputField}
                 />
-                {errors.senha && <p className="error">{errors.senha.message}</p>}
-                <button type="submit" className={estilos.submitButton}>
+                {errors.password && <p className={estiloslogin.error}>{errors.password.message}</p>}
+
+                <button type="submit" className={estiloslogin.submitButton}>
                     ENTRAR
                 </button>
             </form>

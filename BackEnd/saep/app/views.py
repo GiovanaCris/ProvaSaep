@@ -12,11 +12,12 @@ from .serializers import (
     MovimentacaoSerializer
 )
 
-#Login
+# LOGIN
 class loginView(TokenObtainPairView):
     serializer_class = LoginSerializer
 
-#CRUD usuários
+
+# USUÁRIO
 class UsuarioListCreate(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
@@ -31,14 +32,15 @@ class UsuarioUpdateDestroy(RetrieveUpdateDestroyAPIView):
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-        nome = instance.nome
+        nome = instance.username  # corrigido
         self.perform_destroy(instance)
         return Response(
             {"detail": f"Usuário '{nome}' deletado!"},
             status=status.HTTP_200_OK
         )
 
-#CRUD categoria
+
+# CATEGORIA
 class CategoriaListCreate(ListCreateAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
@@ -60,7 +62,8 @@ class CategoriaUpdateDestroy(RetrieveUpdateDestroyAPIView):
             status=status.HTTP_200_OK
         )
 
-#CRUD produto
+
+# PRODUTO
 class ProdutoListCreate(ListCreateAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
@@ -83,11 +86,15 @@ class ProdutoUpdateDestroy(RetrieveUpdateDestroyAPIView):
         )
 
 
-#CRUD movimentação do produto
+# MOVIMENTAÇÃO
 class MovimentacaoListCreate(ListCreateAPIView):
     queryset = MovimentacaoProduto.objects.all()
     serializer_class = MovimentacaoSerializer
     permission_classes = [IsAuthenticated]
+
+    # opcional: salvar usuário logado automaticamente
+    # def perform_create(self, serializer):
+    #     serializer.save(id_usuario=self.request.user)
 
 
 class MovimentacaoUpdateDestroy(RetrieveUpdateDestroyAPIView):

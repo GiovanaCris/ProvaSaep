@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS saep_db;
+CREATE DATABASE saep_db;
+
+USE saep_db;
+SHOW TABLES;

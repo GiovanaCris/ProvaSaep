@@ -1,0 +1,114 @@
+/* Container principal: Ocupa a tela inteira */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+    min-width: 100vw; /* <-- ADICIONE OU VERIFIQUE ESTA LINHA */
+    background-color: #f4f7f6; 
+    padding: 0px;
+}
+
+/* ------------------ Header ------------------ */
+
+.header {
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #00244b; /* Cor primária */
+    color: white;
+    margin-top: -23%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logoutButton {
+    background-color: #dc3545; /* Cor de perigo/sair */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.logoutButton:hover {
+    background-color: #c82333;
+}
+
+/* ------------------ Conteúdo Principal ------------------ */
+
+.mainContent {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.title {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* ------------------ Grid de Cards ------------------ */
+
+.cardGrid {
+    display: grid;
+    /* Duas colunas em telas maiores, uma em telas pequenas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #00244b; /* Destaque lateral */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    color: #00244b;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.cardDescription {
+    color: #666;
+    font-size: 0.95em;
+}
