@@ -1,1 +1,60 @@
-Configuração do Ambiente de DesenvolvimentoPara garantir a consistência e eficiência no desenvolvimento deste projeto, recomendamos a utilização do Visual Studio Code (VS Code) com as seguintes extensões e configurações.📦 Extensões RecomendadasInstale as seguintes extensões através da aba de Extensões do VS Code (Ctrl+Shift+X):ExtensãoID (Para Pesquisa)FinalidadeESLintdbaeumer.vscode-eslintIntegra o ESLint para análise estática de código JavaScript/React e identificação de problemas.Prettieresbenp.prettier-vscodeFormata automaticamente o código para um estilo consistente (importante para o Front-End).Pythonms-python.pythonSuporte completo a Python, incluindo IntelliSense, depuração e ambientes virtuais (para o Back-End).Djangobatiste.vscode-djangoOferece snippets, realce de sintaxe e autocomplete para templates Django (se aplicável).GitLenseamodio.gitlensMelhora as capacidades do Git embutidas no VS Code.🛠️ Configurações ImportantesRecomendamos configurar o VS Code para formatar o arquivo automaticamente ao salvar.Abra as Configurações (Ctrl+,).Pesquise por "editor.formatOnSave" e marque a caixa.Garanta que o Prettier esteja definido como o formatador padrão para JavaScript/TypeScript:Pesquise por "editor.defaultFormatter"Defina o valor como esbenp.prettier-vscode (ou o Prettier).Configurações de EspaçamentoPara manter a consistência com o estilo da maioria dos projetos React/JavaScript, verifique:"editor.tabSize": Defina para 4."editor.insertSpaces": Marque para garantir que tabs sejam substituídas por espaços.⚡ Atalhos ÚteisCtrl + Shift + P (ou Cmd + Shift + P): Abre a paleta de comandos.Ctrl + P (ou Cmd + P): Abre a busca rápida de arquivos.Ctrl + ** (ou Cmd + ): Abre o terminal integrado (útil para npm run dev e comandos Django).
+# SAEP
+
+- Este projeto se consiste em um **FrontEnd\Interface realizado em react e backend em django**
+  
+# Passo a passo
+## 🚨 Importante
+- Os comandos podem variar de acordo com o sistema operecional;
+- O projeto foi realizado em um computador windows então os comandos aqui descritos são para windows!
+
+# Como rodar o Backend? 🤔
+## 💫 1- Instalando dependencias
+Antes de tudo é necessário instalar algumas ferramentas em seu computador.
+### 🛠️ Ferramentas 
+- [VSCODE](https://code.visualstudio.com/download)
+- [Python 3.9+](https://www.python.org/downloads/)
+- [GIT](https://git-scm.com/downloads)
+- [SQLite](https://sqlitebrowser.org/dl/)
+
+## 📂 2- Entrando na pasta e rodando o projeto
+- Abra o terminal e digite: cd saep\ cd\backend (cd + tecla tab);
+- Crie um ambiente virtual: python -m venv env;
+- Entre no ambiente: .\env\Scripts\activate;
+- Instale as dependencias: pip install -r .\requeriments.txt;
+- Entre no projeto: cd .\projeto\ (cd + tecla tab);
+- Rode o projeto: python .\manage.py runserver;
+
+## ⚙ 3- Alterando Banco de Dados
+- Abra a pasta projeto dentro da pasta projeto;
+- Abra o arquivo: settings.py;
+- Em DATABASES: Altere para as informações do seu banco;
+
+````python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'app',
+        'USER': 'root',
+        'HOST': 'localhost',
+        'PASSWORD': 'SENAI',
+        'PORT': '3306'
+    }
+}
+````
+- Crie um usuário: python .\manage.py createsuperuser
+- Insira as informações necessárias
+- Seguindo o passo a passo está tudo certinho para o BackEnd, agora bora rodar esse FrontEnd 🎉
+
+# Rodando o FrontEnd ✨
+## 📁 4- Entrando na pasta
+- No seu canto direito do terminal clique no ícone: + (ele irá abrir um novo terminal);
+- Neste terminal, entre na pasta: cd \saep (cd + tecla tab);
+- Entre no projeto: cd .\sistema_ferranentas;
+
+## 🎁 5- Instalando dependencias
+- Para instalar o npm, faça o comando: npm i;
+- Para rodar o projeto: npm run dev
+- Entre no Link: tecla Ctrl + clique botão esquedo do mouse;
+
+# 🔓 Modelos de login para acessar o sistema
+- **Modelo login:** Nome: lin || Senha: 123
