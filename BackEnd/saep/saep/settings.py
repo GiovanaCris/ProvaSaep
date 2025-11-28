@@ -139,3 +139,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=5), #tempo de acesso liberado
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1), #tempo que terá acesso sem fazer novamente o login
 }
+
+AUTH_USER_MODEL = 'app.Usuario'

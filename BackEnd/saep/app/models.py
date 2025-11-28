@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 class Categoria(models.Model):
     nome_categoria = models.CharField(max_length=255)
@@ -6,16 +8,15 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nome_categoria
 
-class Usuario(models.Model):
-    nome = models.CharField(max_length=255, unique=True)
-    cargo = models.CharField(max_length=255)
-    USERNAME_FIELD = 'nome'
-    # nome = models.CharField()
-    # senha = models.CharField(max_length=255)
-    # cargo = models.CharField(max_length=255)
 
+class Usuario(AbstractUser):
+    cargo = models.CharField(max_length=255, blank=True, null=True)
+
+    # Escolha apenas UMA forma de exibir o usuário
     def __str__(self):
-        return self.nome
+        return self.username
+        # ou return f"{self.first_name} {self.last_name}"
+
 
 class Produto(models.Model):
     nome = models.CharField(max_length=255)
@@ -29,15 +30,15 @@ class Produto(models.Model):
     def __str__(self):
         return self.nome
 
-class MovimentacaoProduto(models.Model):
 
+class MovimentacaoProduto(models.Model):
     tipo = models.IntegerField()
     quantidade = models.IntegerField()
     data = models.DateField()
     observacao = models.TextField()
 
     id_produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Movimentação {self.id} - Produto: {self.id_produto.nome}"
