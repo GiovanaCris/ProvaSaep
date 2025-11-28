@@ -1,10 +1,1 @@
-# ProvaSaep
-# Instalações importantes para o FrontEnd ⚙
-- npm i 
-- npm i zod
-- npm i react-router-dom
-- npm i react-hook-form
-- npm i '@hookform/resolvers'
-
-# Instalações importantes para o FrontEnd ⚙
-- pip install -r ./requeriments.txt
+Configuração do Ambiente de DesenvolvimentoPara garantir a consistência e eficiência no desenvolvimento deste projeto, recomendamos a utilização do Visual Studio Code (VS Code) com as seguintes extensões e configurações.📦 Extensões RecomendadasInstale as seguintes extensões através da aba de Extensões do VS Code (Ctrl+Shift+X):ExtensãoID (Para Pesquisa)FinalidadeESLintdbaeumer.vscode-eslintIntegra o ESLint para análise estática de código JavaScript/React e identificação de problemas.Prettieresbenp.prettier-vscodeFormata automaticamente o código para um estilo consistente (importante para o Front-End).Pythonms-python.pythonSuporte completo a Python, incluindo IntelliSense, depuração e ambientes virtuais (para o Back-End).Djangobatiste.vscode-djangoOferece snippets, realce de sintaxe e autocomplete para templates Django (se aplicável).GitLenseamodio.gitlensMelhora as capacidades do Git embutidas no VS Code.🛠️ Configurações ImportantesRecomendamos configurar o VS Code para formatar o arquivo automaticamente ao salvar.Abra as Configurações (Ctrl+,).Pesquise por "editor.formatOnSave" e marque a caixa.Garanta que o Prettier esteja definido como o formatador padrão para JavaScript/TypeScript:Pesquise por "editor.defaultFormatter"Defina o valor como esbenp.prettier-vscode (ou o Prettier).Configurações de EspaçamentoPara manter a consistência com o estilo da maioria dos projetos React/JavaScript, verifique:"editor.tabSize": Defina para 4."editor.insertSpaces": Marque para garantir que tabs sejam substituídas por espaços.⚡ Atalhos ÚteisCtrl + Shift + P (ou Cmd + Shift + P): Abre a paleta de comandos.Ctrl + P (ou Cmd + P): Abre a busca rápida de arquivos.Ctrl + ** (ou Cmd + ): Abre o terminal integrado (útil para npm run dev e comandos Django).
